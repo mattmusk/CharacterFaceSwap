@@ -82,7 +82,7 @@ class LoadRetinaFace:
     CATEGORY = "CFaceSwap"
     def load(self):
         from facexlib.detection import init_detection_model
-        return (init_detection_model("retinaface_resnet50", model_rootpath=self.models_dir), )
+        return (init_detection_model("retinaface_resnet50", model_rootpath=self.models_dir, device='cuda' if torch.cuda.is_available() else 'cpu'), )
     
     
 class CropFace:
